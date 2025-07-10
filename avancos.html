@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avanços dos Povos Indígenas</title>
+  <style>
+    body {
+      background-color: #19191f;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000000;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 4px solid #555;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: #000000;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .topico {
+      margin-bottom: 20px;
+      background-color: #1a1a1a;
+      border-left: 5px solid #020344;
+      border-radius: 6px;
+      padding: 15px;
+    }
+
+    .titulo {
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffffff;
+    }
+
+    .conteudo {
+      display: none;
+      margin-top: 10px;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    .links {
+      margin-top: 30px;
+    }
+
+    a.botao {
+      display: inline-block;
+      background: #444;
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 8px;
+    }
+
+    a.botao:hover {
+      background-color: #666;
+    }
+
+    footer {
+      background-color: #000000;
+      color: #999;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Avanços dos Povos Indígenas</h1>
+  </header>
+
+  <section>
+
+    <div class="topico">
+      <div class="titulo" onclick="toggle('t1', this)">⿡ Direito às Terras Tradicionais 🔽</div>
+      <div class="conteudo" id="t1">
+        Os povos indígenas têm direito de viver em suas terras de forma permanente. A Constituição de 1988 garante que essas terras sejam demarcadas e protegidas pelo governo, mas ainda enfrentam invasões e disputas.
+      </div>
+    </div>
+
+    <div class="topico">
+      <div class="titulo" onclick="toggle('t2', this)">⿢ Educação Diferenciada 🔽</div>
+      <div class="conteudo" id="t2">
+        Os indígenas têm direito a escolas especiais dentro das aldeias, com ensino bilíngue (na língua indígena e em português) e conteúdo que respeita sua cultura, história e tradições.
+      </div>
+    </div>
+
+    <div class="topico">
+      <div class="titulo" onclick="toggle('t3', this)">⿣ Saúde Indígena 🔽</div>
+      <div class="conteudo" id="t3">
+        Existe um atendimento de saúde específico para comunidades indígenas, com profissionais preparados para respeitar costumes e línguas. O SUS criou Distritos Sanitários Especiais Indígenas (DSEIs) para isso.
+      </div>
+    </div>
+
+    <div class="topico">
+      <div class="titulo" onclick="toggle('t4', this)">⿤ Representação Política 🔽</div>
+      <div class="conteudo" id="t4">
+        Hoje existem lideranças indígenas eleitas para cargos importantes, como vereadores, deputados e até ministros. Um exemplo é o Ministério dos Povos Indígenas, criado em 2023, chefiado por uma indígena.
+      </div>
+    </div>
+
+    <div class="topico">
+      <div class="titulo" onclick="toggle('t5', this)">⿥ Valorização e Reconhecimento Cultural 🔽</div>
+      <div class="conteudo" id="t5">
+        A cultura indígena tem ganhado mais espaço e respeito na sociedade, com festas, línguas, rituais e saberes sendo reconhecidos como parte importante da identidade brasileira.
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="index.html" class="botao">Início</a>
+      <a href="compositores.html" class="botao">Compositores</a>
+      <a href="lutas.html" class="botao">Lutas</a>
+      <a href="principais_lutas.html" class="botao">Principais Lutas</a>
+      <a href="quiz.html" class="botao">Quiz Interativo</a>
+
+    </div>
+
+  </section>
+
+  <footer>
+    Todos os direitos reservados © E.E.B Teófilo Nolasco de Almeida
+  </footer>
+
+  <script>
+    function toggle(id, element) {
+      const box = document.getElementById(id);
+      const isVisible = box.style.display === "block";
+      box.style.display = isVisible ? "none" : "block";
+      element.innerHTML = element.innerHTML.includes("🔽")
+        ? element.innerHTML.replace("🔽", "🔼")
+        : element.innerHTML.replace("🔼", "🔽");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lutas dos Povos Indígenas</title>
+  <style>
+    body {
+      background-color: #19191f;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 4px solid #555;
+    }
+
+    section {
+      background-color: #000;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .evento {
+      margin-bottom: 20px;
+      background-color: #2e2e2e;
+      border-left: 6px solid #040544;
+      border-radius: 6px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .titulo {
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .conteudo {
+      display: none;
+      margin-top: 10px;
+      color: #e0e0e0;
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    .links {
+      margin-top: 30px;
+      
+    }
+
+    a.botao {
+      display: inline-block;
+      background: #444;
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 8px;
+    }
+
+    a.botao:hover {
+      background-color: #666;
+    }
+
+    footer {
+      background-color: #111;
+      color: #999;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lutas dos Povos Indígenas</h1>
+  </header>
+
+  <section>
+
+    <div class="evento">
+      <div class="titulo" onclick="toggle('evento1', this)">🔽 Demarcação de Terras</div>
+      <div class="conteudo" id="evento1">
+        Os povos indígenas lutam principalmente pela demarcação e proteção de suas terras, conforme garantido pela Constituição. Essa luta é essencial para a preservação de seu modo de vida, cultura e espiritualidade.
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="titulo" onclick="toggle('evento2', this)">🔽 Defesa Cultural e Linguística</div>
+      <div class="conteudo" id="evento2">
+        Os povos indígenas também defendem seus direitos culturais, como o uso de línguas nativas, práticas religiosas, rituais e modos de vida tradicionais.
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="titulo" onclick="toggle('evento3', this)">🔽 Combate a Ameaças Ambientais</div>
+      <div class="conteudo" id="evento3">
+        Garimpos ilegais, desmatamento, poluição e invasões são grandes ameaças às terras indígenas. A luta contra esses crimes é constante e fundamental.
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="titulo" onclick="toggle('evento4', this)">🔽 Representação Política</div>
+      <div class="conteudo" id="evento4">
+        A busca por maior participação em decisões políticas e criação de leis é outra frente de luta. Lideranças indígenas têm ocupado cargos importantes para representar seus povos.
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="titulo" onclick="toggle('evento5', this)">🔽 Direito à Identidade</div>
+      <div class="conteudo" id="evento5">
+        Manter viva a identidade indígena é uma forma de resistência. Essa luta inclui o respeito à sua história, suas crenças e sua autonomia dentro da sociedade brasileira.
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="index.html" class="botao">Início</a>
+      <a href="compositores.html" class="botao">Compositores</a>
+      <a href="principais_lutas.html" class="botao">Principais Lutas</a>
+      <a href="avancos.html" class="botao">Avanços</a>
+      <a href="quiz.html" class="botao">Quiz Interativo</a>
+
+    </div>
+
+  </section>
+
+  <footer>
+    Todos os direitos reservados © E.E.B Teófilo Nolasco de Almeida
+  </footer>
+
+  <script>
+    function toggle(id, el) {
+      const box = document.getElementById(id);
+      const isVisible = box.style.display === "block";
+      box.style.display = isVisible ? "none" : "block";
+      el.innerHTML = isVisible
+        ? el.innerHTML.replace("🔼", "🔽")
+        : el.innerHTML.replace("🔽", "🔼");
+    }
+  </script>
+
+</body>
+</html>

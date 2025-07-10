@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Indígena</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #19191f;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000;
+      text-align: center;
+      padding: 30px 0;
+      border-bottom: 4px solid #555;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background-color: #2e2e2e;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .intro {
+      background-color: #111;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .intro h2 {
+      margin-bottom: 10px;
+      color: #00ff99;
+    }
+
+    .question {
+      margin-bottom: 25px;
+    }
+
+    .question h2 {
+      font-size: 20px;
+    }
+
+    .options button {
+      display: block;
+      margin: 8px 0;
+      padding: 10px;
+      width: 100%;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .options button:hover {
+      background-color: #666;
+    }
+
+    .options button:disabled {
+      background-color: #333;
+      cursor: not-allowed;
+    }
+
+    .result {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .erro {
+      color: red;
+      text-align: center;
+      margin: 10px 0;
+      font-weight: bold;
+      display: none;
+    }
+
+    .botao-voltar {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .botao-voltar a {
+      text-decoration: none;
+      background-color: #444;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+    }
+
+    footer {
+      background-color: #000000;
+      color: #999;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .botao-voltar a:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Quiz: O Que Você Sabe Sobre os Povos Indígenas?</h1>
+  </header>
+
+  <div class="container" id="quizContainer">
+    <div class="intro">
+      <h2>📜 Regras do Quiz</h2>
+      <p><strong>✅ Acertou?</strong> Passou para a próxima pergunta!</p>
+      <p><strong>❌ Errou?</strong> Espere 3 segundos e tente novamente.</p>
+      <p><strong>🏁 Terminou?</strong> Grite seu nome e aguarde! Os 3 mais rápidos ganham uma recompensa! 🎉</p>
+    </div>
+
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <div class="erro" id="erroMsg">❌ Resposta incorreta! Tente novamente...</div>
+    <div class="result" id="result"></div>
+  </div>
+
+  <div class="botao-voltar">
+    <a href="index.html">Voltar ao Início</a>
+  </div>
+
+  <script>
+    const perguntas = [
+      {
+        pergunta: "1. Quem são os povos indígenas?",
+        opcoes: ["Migrantes do sul do Brasil", "Povos originários do território brasileiro", "Grupos colonizadores europeus"],
+        correta: 1
+      },
+      {
+        pergunta: "2. Qual é a principal luta dos povos indígenas atualmente?",
+        opcoes: ["Fim da escravidão", "Direito ao voto", "Demarcação e proteção das terras"],
+        correta: 2
+      },
+      {
+        pergunta: "3. Qual documento garante os direitos indígenas no Brasil?",
+        opcoes: ["Código Penal", "Constituição de 1988", "Lei de Terras"],
+        correta: 1
+      },
+      {
+        pergunta: "4. O que são os DSEIs?",
+        opcoes: ["Distritos de saúde indígena", "Departamentos de segurança indígena", "Distribuidores de alimentos indígenas"],
+        correta: 0
+      },
+      {
+        pergunta: "5. Como é chamada a educação específica para povos indígenas?",
+        opcoes: ["Ensino técnico rural", "Educação diferenciada", "Educação regular"],
+        correta: 1
+      },
+      {
+        pergunta: "6. Que avanço político importante aconteceu em 2023?",
+        opcoes: ["Criação do Ministério dos Povos Indígenas", "Fim das reservas ambientais", "Fusão de aldeias urbanas"],
+        correta: 0
+      },
+      {
+        pergunta: "7. Qual porcentagem da população brasileira é indígena?",
+        opcoes: ["0,83%", "5%", "10%"],
+        correta: 0
+      }
+    ];
+
+    let indice = 0;
+    let pontos = 0;
+
+    function carregarPergunta() {
+      if (indice >= perguntas.length) {
+        document.getElementById("question").innerHTML = "";
+        document.getElementById("options").innerHTML = "";
+        document.getElementById("result").innerHTML = `<div class='result'>Você fez <span style='color: #00ff99;'>${pontos} de ${perguntas.length}</span> pontos!</div>`;
+        return;
+      }
+
+      const q = perguntas[indice];
+      document.getElementById("erroMsg").style.display = "none";
+      document.getElementById("question").innerHTML = `<h2>${q.pergunta}</h2>`;
+      document.getElementById("options").innerHTML = q.opcoes.map((opcao, i) => `
+        <button onclick="verificarResposta(${i})">${opcao}</button>
+      `).join('');
+    }
+
+    function verificarResposta(resposta) {
+      const botoes = document.querySelectorAll(".options button");
+      botoes.forEach(btn => btn.disabled = true);
+
+      if (resposta === perguntas[indice].correta) {
+        pontos++;
+        indice++;
+        carregarPergunta();
+      } else {
+        document.getElementById("erroMsg").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("erroMsg").style.display = "none";
+          carregarPergunta();
+        }, 3000);
+      }
+    }
+
+    carregarPergunta();
+  </script>
+  <footer>
+    Todos os direitos reservados © E.E.B Teófilo Nolasco de Almeida
+  </footer>
+</body>
+</html>

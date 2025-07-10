@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compositores Indígenas</title>
+  <style>
+    body {
+      background-color: #19191f;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000000;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 4px solid #555;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: #000000;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .toggle-btn {
+      display: inline-block;
+      background-color: #222;
+      color: #ffffff;
+      border: none;
+      font-size: 18px;
+      padding: 12px 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 20px 0;
+      transition: background 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background-color: #333;
+    }
+
+    .imagens {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .imagens img {
+      width: 90%;
+      max-width: 300px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .links {
+      margin-top: 30px;
+    }
+
+    a.botao {
+      display: inline-block;
+      background: #444;
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 8px;
+    }
+
+    a.botao:hover {
+      background-color: #666;
+    }
+
+    footer {
+      background-color: #000000;
+      color: #999;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Compositores Indígenas</h1>
+  </header>
+
+  <section>
+    <p>
+      Os compositores indígenas são vozes essenciais na preservação e na divulgação das culturas originárias do Brasil. Por meio da música, eles mantêm vivas as tradições ancestrais, transmitindo histórias, rituais e ensinamentos em suas próprias línguas. Suas canções expressam conexão com a terra, a espiritualidade e o cotidiano das aldeias.
+    </p>
+
+    <p>
+      Muitos desses artistas vêm ganhando espaço em eventos culturais, festivais e até nas plataformas digitais, ajudando a fortalecer a identidade dos povos indígenas e combater o preconceito por meio da arte.
+    </p>
+
+    <!-- Botão interativo -->
+    <button class="toggle-btn" onclick="mostrarFotos()">🔽 Ver fotos dos compositores indígenas</button>
+
+    <!-- Galeria de imagens oculta -->
+    <div class="imagens" id="galeria">
+      <img src="img/compositor1.jpg" alt="Compositor indígena 1"><br>
+      <img src="img/compositor2.jpg" alt="Grupo indígena com instrumentos"><br>
+      <img src="img/compositor3.jpg" alt="Jovens indígenas músicos"><br>
+    </div>
+
+    <div class="links">
+      <a href="index.html" class="botao">Início</a>
+      <a href="lutas.html" class="botao">Lutas</a>
+      <a href="principais_lutas.html" class="botao">Principais Lutas</a>
+      <a href="avancos.html" class="botao">Avanços</a>
+      <a href="quiz.html" class="botao">Quiz Interativo</a>
+
+    </div>
+  </section>
+
+  <footer>
+    Todos os direitos reservados © E.E.B Teófilo Nolasco de Almeida
+  </footer>
+
+  <script>
+    function mostrarFotos() {
+      const galeria = document.getElementById("galeria");
+      const botao = document.querySelector(".toggle-btn");
+      if (galeria.style.display === "none" || galeria.style.display === "") {
+        galeria.style.display = "block";
+        botao.innerHTML = "🔼 Ocultar fotos dos compositores indígenas";
+      } else {
+        galeria.style.display = "none";
+        botao.innerHTML = "🔽 Ver fotos dos compositores indígenas";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Principais Lutas Indígenas</title>
+  <style>
+    body {
+      background-color: #19191f;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 4px solid #555;
+    }
+
+    .mapa-toggle-btn {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .mapa-toggle-btn button {
+      background-color: #00bfff;
+      color: #000000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .mapa-container {
+      position: relative;
+      max-width: 900px;
+      margin: 20px auto;
+      background-color: #000000;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
+    }
+
+    .mapa-container img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .flecha {
+      position: absolute;
+      font-size: 20px;
+      cursor: pointer;
+      color: #00bfff;
+      background-color: #111;
+      padding: 4px 6px;
+      border-radius: 4px;
+      border: 1px solid #444;
+    }
+
+    .conteudo {
+      display: none;
+      background-color: #111;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+      line-height: 1.6;
+      font-size: 16px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    }
+
+    .links {
+      text-align: center;
+      margin: 30px 0 10px;
+    }
+
+    a.botao {
+      display: inline-block;
+      background: #444;
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 8px;
+    }
+
+    a.botao:hover {
+      background-color: #666;
+    }
+
+    footer {
+      background-color: #000000;
+      color: #999;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Principais Lutas Indígenas</h1>
+  </header>
+
+  <div class="mapa-toggle-btn">
+    <button onclick="toggleMapa()">🔽 Ocultar Mapa</button>
+  </div>
+
+  <section id="mapa" class="mapa-container">
+    <img src="img/mapa-brasil.png" alt="Mapa do Brasil">
+
+    <!-- Flechas -->
+    <div class="flecha" style="top: 22%; left: 20%;" onclick="mostrar('luta1')">1🔽</div>
+    <div class="flecha" style="top: 35%; left: 52%;" onclick="mostrar('luta2')">2🔽</div>
+    <div class="flecha" style="top: 45%; left: 60%;" onclick="mostrar('luta3')">3🔽</div>
+    <div class="flecha" style="top: 30%; left: 70%;" onclick="mostrar('luta4')">4🔽</div>
+    <div class="flecha" style="top: 55%; left: 40%;" onclick="mostrar('luta5')">5🔽</div>
+
+    <!-- Conteúdo das Lutas -->
+    <div class="conteudo" id="luta1">
+      <strong>Direito às Terras Tradicionais:</strong> Os povos indígenas têm direito de viver em suas terras de forma permanente. A Constituição de 1988 garante que essas terras sejam demarcadas e protegidas pelo governo.
+    </div>
+
+    <div class="conteudo" id="luta2">
+      <strong>Educação Diferenciada:</strong> Os indígenas têm direito a escolas dentro das aldeias, com ensino bilíngue (língua indígena e português) e conteúdo que respeita suas tradições.
+    </div>
+
+    <div class="conteudo" id="luta3">
+      <strong>Saúde Indígena:</strong> O SUS criou Distritos Sanitários Especiais Indígenas (DSEIs) para oferecer atendimento específico, respeitando suas línguas e tradições.
+    </div>
+
+    <div class="conteudo" id="luta4">
+      <strong>Representação Política:</strong> Lideranças indígenas vêm ocupando cargos como vereadores, deputados e até ministros. Um exemplo é o Ministério dos Povos Indígenas.
+    </div>
+
+    <div class="conteudo" id="luta5">
+      <strong>Valorização e Reconhecimento Cultural:</strong> A cultura indígena tem ganhado respeito na sociedade com suas festas, línguas, rituais e saberes reconhecidos como parte da identidade brasileira.
+    </div>
+  </section>
+
+  <div class="links">
+    <a href="index.html" class="botao">Início</a>
+    <a href="compositores.html" class="botao">Compositores</a>
+    <a href="lutas.html" class="botao">Lutas</a>
+    <a href="avancos.html" class="botao">Avanços</a>
+    <a href="quiz.html" class="botao">Quiz Interativo</a>
+
+  </div>
+
+  <footer>
+    Todos os direitos reservados © E.E.B Teófilo Nolasco de Almeida
+  </footer>
+
+  <script>
+    function mostrar(id) {
+      const box = document.getElementById(id);
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleMapa() {
+      const mapa = document.getElementById("mapa");
+      const botao = document.querySelector(".mapa-toggle-btn button");
+      if (mapa.style.display === "none") {
+        mapa.style.display = "block";
+        botao.innerHTML = "🔽 Ocultar Mapa";
+      } else {
+        mapa.style.display = "none";
+        botao.innerHTML = "🔼 Mostrar Mapa";
+      }
+    }
+  </script>
+
+</body>
+</html>
